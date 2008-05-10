@@ -1,5 +1,5 @@
 #Module-Specific definitions
-%define apache_version 2.2.4
+%define apache_version 2.2.8
 %define mod_name mod_httpbl
 %define mod_conf A99_%{mod_name}.conf
 %define mod_so %{mod_name}.so
@@ -7,7 +7,7 @@
 Summary:	DSO module for the apache Web server
 Name:		apache-%{mod_name}
 Version:	0
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Servers
 License:	Apache License
 URL:		http://sourceforge.net/projects/httpbl/
@@ -20,7 +20,7 @@ Requires(pre):  apache >= %{apache_version}
 Requires:	apache-conf >= %{apache_version}
 Requires:	apache >= %{apache_version}
 BuildRequires:  apache-devel >= %{apache_version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The mod_httpbl Apache module is ideal for leveraging the Project Honey pot
@@ -42,7 +42,7 @@ cp %{SOURCE1} %{mod_conf}
 %{_sbindir}/apxs -DDEFAULT_SERVER_ROOT_DIRECTORY=\\\"%{_sysconfdir}/httpd/\\\" -c mod_httpbl.c
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/apache-extramodules
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
@@ -63,7 +63,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
