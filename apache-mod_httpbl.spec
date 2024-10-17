@@ -10,7 +10,7 @@ Version:	0
 Release:	%mkrel 13
 Group:		System/Servers
 License:	Apache License
-URL:		http://sourceforge.net/projects/httpbl/
+URL:		https://sourceforge.net/projects/httpbl/
 Source0:	mod_httpbl_for_apache_2.0.tar.gz
 Source1:	%{mod_conf}
 Requires(pre): rpm-helper
