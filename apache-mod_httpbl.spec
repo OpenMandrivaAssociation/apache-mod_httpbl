@@ -7,7 +7,7 @@
 Summary:	DSO module for the apache Web server
 Name:		apache-%{mod_name}
 Version:	0
-Release:	%mkrel 13
+Release:	14
 Group:		System/Servers
 License:	Apache License
 URL:		https://sourceforge.net/projects/httpbl/
